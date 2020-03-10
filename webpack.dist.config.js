@@ -27,11 +27,11 @@ module.exports = {
     ]
   },
   node: { fs: 'empty' },
-  devtool: 'source-map',
+  // devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, './indexTemplate.html'),
-      // filename: path.join(__dirname, './dist/index.html'),
+      filename: path.join(__dirname, './dist/index.html'),
       inject: true
     })
   ]

@@ -6,7 +6,7 @@ import * as cornerstoneTools from "cornerstone-tools"
 import * as dicomParser from "dicom-parser"
 import Hammer from "hammerjs"
 import './index.css'
-import cornerstoneWADOImageLoader from '../dist/static/cornerstoneWADOImageLoader'
+import cornerstoneWADOImageLoader from '../dist/static/cornerstoneWADOImageLoader.min.js'
 
 cornerstoneTools.external.cornerstone = cornerstone
 cornerstoneTools.external.cornerstoneMath = cornerstoneMath
