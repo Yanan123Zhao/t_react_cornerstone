@@ -4,8 +4,8 @@ const path = require('path')
 module.exports = {
   mode: 'development',
   entry: {
-    main: './src/index.js',
-    webWorder: './src/webworker_load_images.js'
+    main: path.join(__dirname, './src/index.js'),
+    webWorder: path.join(__dirname, './src/webworker_load_images.js')
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -35,7 +35,8 @@ module.exports = {
   devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: path.join(__dirname, './indexTemplate.html'),
+      // filename: path.join(__dirname, './dist/index.html'),
       inject: true
     })
   ]

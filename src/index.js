@@ -176,7 +176,7 @@ class CornerstoneElement extends React.Component {
           console.log('n', n)
           if (lastI !== n) {
             _this.setState({
-              imageId: _this.props.stack.imageIds[n > 19 ? 19 : n]
+              imageId: `/images/0000${n > 19 ? 19 : n.toString().padStart(2, '0')}.dcm`
             })
             lastI = n
           }
@@ -189,7 +189,7 @@ class CornerstoneElement extends React.Component {
         window.onmouseup = this.onmouseup = null
       }
     }
-    var w = new Worker("./webWorder.js")
+    // var w = new Worker("./webWorder.js")
   }
 
   componentWillUnmount() {
@@ -215,6 +215,7 @@ class CornerstoneElement extends React.Component {
 
     //const imageId = stack.imageIds[stack.currentImageIdIndex];
     //cornerstoneTools.scrollToIndex(this.element, stack.currentImageIdIndex);
+    console.log('ooooooooooooooooooooooo')
     if (prevState.imageId !== this.state.imageId) {
       const element = this.element;
       cornerstone.enable(element)
@@ -233,9 +234,9 @@ class CornerstoneElement extends React.Component {
   render() {
     return (
       <div
-        style={{position: 'relative', height: 512}}
+        style={{position: 'relative', height: '512px'}}
         ref={input => {
-          this.wraper = input;
+          this.wraper = input
         }}  
       >
         <div className='slide'>
@@ -266,33 +267,14 @@ class CornerstoneElement extends React.Component {
 
 const stack = {
   imageIds: [
-    "http://localhost:3000/images/000000.dcm",
-    "http://localhost:3000/images/000001.dcm",
-    "http://localhost:3000/images/000002.dcm",
-    "http://localhost:3000/images/000003.dcm",
-    "http://localhost:3000/images/000004.dcm",
-    "http://localhost:3000/images/000005.dcm",
-    "http://localhost:3000/images/000006.dcm",
-    "http://localhost:3000/images/000007.dcm",
-    "http://localhost:3000/images/000008.dcm",
-    "http://localhost:3000/images/000009.dcm",
-    "http://localhost:3000/images/000010.dcm",
-    "http://localhost:3000/images/000011.dcm",
-    "http://localhost:3000/images/000012.dcm",
-    "http://localhost:3000/images/000013.dcm",
-    "http://localhost:3000/images/000014.dcm",
-    "http://localhost:3000/images/000015.dcm",
-    "http://localhost:3000/images/000016.dcm",
-    "http://localhost:3000/images/000017.dcm",
-    "http://localhost:3000/images/000018.dcm",
-    "http://localhost:3000/images/000019.dcm"
+    "/images/000000.dcm"
   ],
   currentImageIdIndex: 0
 };
 
 const App = () => (
   <div>
-    <h2>React Component with Cornerstone demo</h2>
+    <h2>React with Cornerstone demo -- show dicom in web</h2>
     <CornerstoneElement stack={{ ...stack }} />
   </div>
 );
